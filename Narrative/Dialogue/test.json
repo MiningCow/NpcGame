@@ -1,0 +1,48 @@
+{
+    "start": "0",
+    "passages": {
+        "0": {
+            "text": "start",
+            "next": null,
+            "links": [
+                {
+                    "text": "passage 1",
+                    "link": "1"
+                },
+                {
+                    "text": "passage 2",
+                    "link": "2"
+                }
+            ]
+        },
+        "1": {
+            "text": "this is passage 1",
+            "next": null,
+            "links": [
+                {
+                    "text": "passage 2",
+                    "link": "2"
+                }
+            ]
+        },
+        "2": {
+            "text": "this is passage 2",
+            "next": null,
+            "links": [
+                {
+                    "text": "start over",
+                    "link": "0"
+                },
+                {
+                    "text": "bye",
+                    "link": "3"
+                }
+            ]
+        },
+        "3": {
+            "text": "goodbye",
+            "next": null,
+            "links": []
+        }
+	}
+}

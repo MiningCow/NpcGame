@@ -1,0 +1,105 @@
+{
+	"start": {
+        "start": "heyMyNameIsBobLi"
+    },
+	"passages": {
+		"waitWillYouHelpM": {
+			"text":"Wait! Will you help me?",
+            "next": null,
+            "links": []
+		},
+		"heyMyNameIsBobLi": {
+		    "text": "Hey! My name is Bob. Listen, I need you to help me with something",
+            "next": null,
+			"links": [
+                {
+                    "text": "Bye",
+                    "link": "waitWhereAreYouG"
+                },
+                {
+                    "text": "What?",
+                    "link": "itsMyCabbageItsM"
+                }
+            ]
+		},
+		"waitWhereAreYouG": {
+		    "text": "Wait! Where are you going?",
+            "next": null,
+            "links": []
+		},
+		"itsMyCabbageItsM": {
+		    "text": "It's my cabbage. It's missing.",
+            "next": null,
+            "links": [
+                {
+                    "text": "Excuse me?",
+                    "link": "itsGoneIThinkSom"
+                },
+                {
+                    "text": "How can I help?",
+                    "link": "wellIThinkSomeon"
+                }
+		    ]
+		},
+		"itsGoneIThinkSom": {
+		    "text": "It's gone. I think someone stole it",
+            "next": null,
+            "links": [
+                {
+                    "text": "You're a crazy person",
+                    "link": "shakeRateLevelIM"
+                }
+		    ]
+		},
+		"wellIThinkSomeon": {
+		    "text": "Well, I think someone stole it. I need you to help me catch the thief and bring me my cabbage.",
+            "next": null,
+            "links": [
+                {
+                    "text": "I'll help you.",
+                    "link": "thankYouSoMuchGo"
+                },
+                {
+                    "text": "Bye",
+                    "link": "waitWhereAreYouG"
+                }
+		    ]
+		},
+		"shakeRateLevelIM": {
+            "text": "[shake rate=25 level=10]I'M CRAZY?!?[/shake] NO YOU ARE!! IT WAS YOU WASN'T IT!!",
+            "next": null,
+			"links": [
+                {
+			        "text": "Bye",
+			        "link": "hEYGETBACKHERETH"
+                }
+            ]
+		},
+		"thankYouSoMuchGo": {
+            "text": "Thank you so much! Good luck",
+            "next": null,
+            "links": []
+		},
+		"hEYGETBACKHERETH": {
+		    "text": "HEY GET BACK HERE THIEF!!",
+            "next": null,
+            "links": []
+		}
+	},
+    "conditions": {
+        "talked": [
+            {
+                "type": "var",
+                "id": "talked_bob",
+                "value": "true"
+            }
+        ],
+        "hasCabbage": [
+            {
+                "type": "item",
+                "id": "cabbage",
+                "count": 1
+            }
+        ]
+    }
+}

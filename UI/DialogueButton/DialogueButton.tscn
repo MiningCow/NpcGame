@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/DialogueButton/dialogue_button.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/DialogueFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/DialogueButton/dialogue_button_hover.png" type="Texture" id=3]
+[ext_resource path="res://UI/DialogueButton/dialogue_button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://UI/DialogueButton/DialogueButton.gd" type="Script" id=5]
+
+[node name="DialogueButton" type="TextureButton"]
+margin_left = 61.0
+margin_right = 267.0
+margin_bottom = 48.0
+size_flags_horizontal = 6
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+stretch_mode = 4
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "test"
+align = 1
+valign = 1

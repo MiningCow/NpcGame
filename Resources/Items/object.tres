@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/object.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "object"
+display_name = "[color=red]Object[/color]"
+description = "A mysterious red object"
+texture = ExtResource( 2 )

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/DialogueButton/DialogueButton.tscn" type="PackedScene" id=1]
+
+[node name="ContinueButton" instance=ExtResource( 1 )]
+size_flags_horizontal = 10
+script = null
+
+[node name="Label" parent="." index="0"]
+text = "Continue"
