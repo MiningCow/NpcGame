@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Item.gd" type="Script" id=1]
-[ext_resource path="res://NPCs/interaction_indicator.png" type="Texture" id=2]
+[ext_resource path="res://Assets/interaction_indicator.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/DialogueFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -30,7 +30,7 @@ margin_left = -161.0
 margin_top = -60.0
 margin_right = 161.0
 margin_bottom = -27.0
-custom_colors/default_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+custom_colors/default_color = Color( 0.235294, 0.235294, 0.235294, 1 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Object[/center]"

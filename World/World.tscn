@@ -1,18 +1,21 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/paper_background.png" type="Texture" id=2]
 [ext_resource path="res://World/World.gd" type="Script" id=3]
-[ext_resource path="res://NPCs/Npc.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/NPCs/John.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/DialogueUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Items/object.tres" type="Resource" id=7]
 [ext_resource path="res://World/Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/football.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Items/lighter.tres" type="Resource" id=11]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
+glow_blend_mode = 1
+glow_bicubic_upscale = true
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
@@ -32,31 +35,30 @@ position = Vector2( -310, -53 )
 position = Vector2( 0, -50 )
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Npc" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -2, -3 )
-skin = 5
-dialogue_path = "res://Narrative/Dialogue/test3.json"
+[node name="John" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -672, 143 )
 
-[node name="Kurt" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -827, 92 )
-skin = 3
-dialogue_path = "res://Narrative/Dialogue/kurt.json"
+[node name="Lighter" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -949, 1 )
+item = ExtResource( 11 )
+
+[node name="Object" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 319, -94 )
+__meta__ = {
+"_edit_group_": true
+}
+item = ExtResource( 7 )
+
+[node name="Sprite" parent="YSort/Object" index="1"]
+self_modulate = Color( 3, 1, 1, 1 )
+position = Vector2( 0, 0 )
+offset = Vector2( 0, -15 )
 
 [node name="Football" type="Sprite" parent="YSort"]
 position = Vector2( -674, -261 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 9 )
 offset = Vector2( 0, -115 )
-
-[node name="Kurt2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -701, -253 )
-skin = 1
-dialogue_path = "res://Narrative/Dialogue/john.json"
-
-[node name="VarTest" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 191, -264 )
-skin = 4
-dialogue_path = "res://Narrative/Dialogue/varTest.json"
 
 [node name="Bush" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -487, -233 )
@@ -81,13 +83,6 @@ position = Vector2( -701, -97 )
 position = Vector2( 65, 25 )
 region_rect = Rect2( 0, 0, 512, 350 )
 
-[node name="Object" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 55, 154 )
-item = ExtResource( 7 )
-
-[node name="Sprite" parent="YSort/Object" index="1"]
-self_modulate = Color( 3, 1, 1, 1 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -107,6 +102,9 @@ margin_left = 1.0
 margin_top = 1.0
 margin_right = 41.0
 margin_bottom = 41.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

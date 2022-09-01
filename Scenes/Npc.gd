@@ -1,8 +1,6 @@
 extends StaticBody2D
 class_name Npc
 
-enum NPC_SKINS { STICK1, STICK2, TALL1, TALL2, TALL3, STICK3 }
-export(NPC_SKINS) var skin
 export(String, FILE, "*.json") var dialogue_path
 onready var sprite = $Sprite
 onready var interaction_indicator = $InteractionIndicator
@@ -10,8 +8,6 @@ var dialogue
 #var player_in_range: bool = false
 
 func _ready():
-	sprite.region_rect = Rect2(skin * 350, 0, 350, 800)
-
 	dialogue = get_dialogue()
 
 func get_dialogue():
@@ -30,7 +26,7 @@ func get_dialogue():
 
 func talk():
 	interaction_indicator.visible = false
-	DialogueManager.begin_dialogue(dialogue)
+	DialogueManager.begin_dialogue(dialogue, self)
 
 #func _on_TalkRange_body_entered(body):
 #	if body.name == "Player":

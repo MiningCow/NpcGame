@@ -1,0 +1,57 @@
+{
+    "name": "Billy",
+	"start": {
+        "start": "00"
+    },
+	"passages": {
+		"00": {
+			"text": "Hey stinky butt",
+            "set": {
+                "id": "talked_billy",
+                "value": "true"
+            },
+            "links": [
+                {
+                    "text": "Poop filled toilet brain",
+                    "link": "01"
+                },
+                {
+                    "text": "Yeah sure",
+                    "link": "01"
+                }
+            ]
+		},
+        "01": {
+			"text": "Oh yeah well you're a stupid pea brain",
+            "links": [
+                {
+                    "text": "",
+                    "link": "01"
+                },
+                {
+                    "text": "Yeah sure",
+                    "link": "01"
+                }
+            ]
+		},
+        "bye": {
+            "text": "Smell ya later"
+        }
+    },
+    "conditions": {
+        "talked": [
+            {
+                "type": "var",
+                "id": "talked_billy",
+                "value": "true"
+            }
+        ],
+        "hasLighter": [
+            {
+                "type": "item",
+                "id": "lighter",
+                "count": 1
+            }
+        ]
+    }
+}

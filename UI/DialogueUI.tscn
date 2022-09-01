@@ -1,8 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/text_window_square.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/DialogueUI.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/DialogueFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
+outline_size = 1
+outline_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -81,6 +90,7 @@ margin_right = 984.0
 margin_bottom = 127.0
 rect_min_size = Vector2( 0, 120 )
 custom_colors/default_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+custom_fonts/bold_font = SubResource( 4 )
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 

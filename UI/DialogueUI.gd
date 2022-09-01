@@ -5,10 +5,12 @@ signal dialogue_ended
 var button_scene = preload("res://UI/DialogueButton/DialogueButton.tscn")
 var continue_button_scene = preload("res://UI/DialogueButton/ContinueButton.tscn")
 export(float) var text_speed = 0.1
+export(float) var punctuation_speed = 0.2
 onready var animation_player = $AnimationPlayer
 onready var label = $TextureRect/MarginContainer/VBoxContainer/RichTextLabel
 onready var button_container = $TextureRect/MarginContainer/VBoxContainer/HBoxContainer
 onready var timer = $Timer
+var npc
 var dialogue
 var passage
 var links
@@ -17,7 +19,8 @@ var next
 func _ready():
 	pass
 
-func begin_dialogue(dialogue):
+func begin_dialogue(dialogue, npc):
+	self.npc = npc
 	self.dialogue = dialogue
 	label.text = ""
 	var starting_passage = get_starting_passage(dialogue)
@@ -44,13 +47,18 @@ func next_passage(id):
 	var set = passage.get("set")
 	if set: set_var(set["id"], set["value"])
 
+	var execute = passage.get("execute")
+	if execute: npc.call(execute)
+
 	label.visible_characters = 0
 	while label.visible_characters < len(label.text):
 		label.visible_characters += 1
 
 		if Input.is_action_pressed("interact"): label.visible_characters = len(label.text)
 
-		timer.start(text_speed)
+		var character = label.text[label.visible_characters-1]
+		var punctuation = character == "." || character == "!" || character == "?"
+		timer.start(punctuation_speed if punctuation else text_speed)
 		yield(timer, "timeout")
 
 	show_buttons()

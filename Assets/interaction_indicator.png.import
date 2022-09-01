@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IMG_5333.jpg-ab89d1aceca82e16757a879cb9089fbf.stex"
+path="res://.import/interaction_indicator.png-2cada407bc0cfaef561ddba9068760d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCs/IMG_5333.jpg"
-dest_files=[ "res://.import/IMG_5333.jpg-ab89d1aceca82e16757a879cb9089fbf.stex" ]
+source_file="res://Assets/interaction_indicator.png"
+dest_files=[ "res://.import/interaction_indicator.png-2cada407bc0cfaef561ddba9068760d7.stex" ]
 
 [params]
 

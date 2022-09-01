@@ -1,60 +1,189 @@
 {
+    "name": "John",
 	"start": {
-        "start": "0"
+        "start": "00",
+        "talked": "10"
     },
 	"passages": {
-		"0": {
-			"text":"Mommmm why did you do that?!",
-            "next": "1",
-            "links": []
-		},
-		"1": {
-		    "text": "Why did you sign me up for football without telling me??",
-            "next": null,
-			"links": [
+		"00": {
+			"text": "Hey! My name is john, but you can call me John the Bomb",
+            "set": {
+                "id": "talked_john",
+                "value": "true"
+            },
+            "links": [
                 {
-                    "text": "I didn't do anything",
-                    "link": "2"
+                    "text": "Bye",
+                    "link": "bye"
                 },
                 {
-                    "text": "I did tell you",
-                    "link": "3"
+                    "text": "What's on your head?",
+                    "link": "02"
                 }
             ]
 		},
-		"2": {
-		    "text": "Yes you did! Goodbye.",
-            "next": null,
-            "links": []
-		},
-		"3": {
-		    "text": "You told me, but after that you told me you were just kidding and you will never sign me up for anything.",
-            "next": null,
+        "02": {
+			"text": "Oh that's just my fuse",
+            "set": {
+                "id": "told_fuse",
+                "value": "true"
+            },
             "links": [
                 {
-                    "text": "Go to your room",
-                    "link": "4"
+                    "text": "Bye",
+                    "link": "bye"
                 },
                 {
+                    "text": "What's it for?",
+                    "link": "03"
+                }
+            ]
+		},
+        "03": {
+			"text": "I don't know I never really thought about it. I was just born like that. Why are you asking?",
+            "links": [
+                {
+                    "text": "Just curious. Bye",
+                    "link": "bye"
+                },
+                {
+                    "text": "Have you tried lighting it?",
+                    "link": "04"
+                },
+                {
+                    "text": "Can I see it?",
+                    "condition": "hasLighter",
+                    "link": "11"
+                }
+            ]
+		},
+        "04": {
+			"text": "What? No! Actually I got places to be. [b]Bye[/b]",
+            "set": {
+                "id": "john_suspicious",
+                "value": "true"
+            }
+		},
+        "10": {
+            "text": "{suspicious:What do you want?|What's up?} {hasLighter:Wait what's that you have there| }",
+            "links": [
+                {
                     "text": "Bye",
                     "link": "bye"
+                },
+                {
+                    "text": "Can I see your fuse?",
+                    "condition": "toldFuse",
+                    "link": "11"
+                },
+                {
+                    "text": "What's on your head?",
+                    "condition": "!toldFuse",
+                    "link": "02"
+                },
+                {
+                    "text": "Oh nothing",
+                    "condition": "hasLighter",
+                    "link": "12"
                 }
-		    ]
-		},
-        "4": {
-		    "text": "Not until you promise you will never sign me up for anything again!",
-            "next": null,
+            ]
+        },
+        "11": {
+            "text": "{suspicious:What do you want with my fuse??|uhh sure I guess. Just don't touch it though}",
+            "links": [
+                {
+                    "text": "LIGHT FUSE",
+                    "condition": "hasLighter",
+                    "link": "14"
+                },
+                {
+                    "text": "Just curious",
+                    "condition": "suspicious", 
+                    "link": "15"
+                },
+                {
+                    "text": "Beautiful fuse",
+                    "link": "13"
+                }
+            ]
+        },
+        "12": {
+            "text": "Oh ok. I was getting worried",
+            "links": [
+                {
+                    "text": "Bye",
+                    "link": "bye"
+                },
+                {
+                    "text": "LIGHT FUSE",
+                    "condition": "hasLighter",
+                    "link": "14"
+                }
+            ]
+        },
+        "15": {
+            "text": "Oh ok. I was getting worried",
+            "links": [
+                {
+                    "text": "Bye",
+                    "link": "bye"
+                },
+                {
+                    "text": "LIGHT FUSE",
+                    "condition": "hasLighter",
+                    "link": "14"
+                }
+            ]
+        },
+        "13": {
+            "text": "Oh thank you!",
+            "set": {
+                "id": "john_suspicious",
+                "value": "false"
+            },
             "links": [
                 {
                     "text": "Bye",
                     "link": "bye"
                 }
-		    ]
-		},
-		"bye": {
-            "text": "Goodbye.",
-            "next": null,
-            "links": []
-		}
-	}
+            ]
+        },
+        "14": {
+            "text": "NO STO...",
+            "execute": "explode"
+        },
+        "bye": {
+            "text": "See ya!"
+        }
+    },
+    "conditions": {
+        "talked": [
+            {
+                "type": "var",
+                "id": "talked_john",
+                "value": "true"
+            }
+        ],
+        "hasLighter": [
+            {
+                "type": "item",
+                "id": "lighter",
+                "count": 1
+            }
+        ],
+        "suspicious": [
+            {
+                "type": "var",
+                "id": "john_suspicious",
+                "value": "true"
+            }
+        ],
+        "toldFuse": [
+            {
+                "type": "var",
+                "id": "told_fuse",
+                "value": "true"
+            }
+        ]
+    }
 }

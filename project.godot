@@ -27,12 +27,12 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "Npc",
 "language": "GDScript",
-"path": "res://NPCs/Npc.gd"
+"path": "res://Scenes/Npc.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player/Player.gd"
+"path": "res://Scenes/Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Inventory": "",

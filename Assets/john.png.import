@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/text_window.png-72f86597bec5549be7ba013d5c857ea7.stex"
+path="res://.import/john.png-20e8032bf0511ca28025672aa25a7c85.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/text_window.png"
-dest_files=[ "res://.import/text_window.png-72f86597bec5549be7ba013d5c857ea7.stex" ]
+source_file="res://Assets/john.png"
+dest_files=[ "res://.import/john.png-20e8032bf0511ca28025672aa25a7c85.stex" ]
 
 [params]
 

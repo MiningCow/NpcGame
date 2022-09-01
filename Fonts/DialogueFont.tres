@@ -4,7 +4,7 @@
 font_path = "res://Fonts/Pangolin-Regular.ttf"
 
 [resource]
-size = 24
+size = 26
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = SubResource( 4 )

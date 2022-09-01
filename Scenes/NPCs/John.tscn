@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/john.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/NPCs/John.gd" type="Script" id=3]
+[ext_resource path="res://Assets/explosion.png" type="Texture" id=4]
+[ext_resource path="res://Assets/explosion.mp3" type="AudioStream" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0998
+
+[sub_resource type="Animation" id=2]
+resource_name = "explode"
+length = 1.15
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Explosion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.125, 0.225, 0.275, 0.325, 0.375, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[node name="Npc" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+dialogue_path = "res://Narrative/Dialogue/John.json"
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+volume_db = 1.5
+
+[node name="Explosion" type="Sprite" parent="." index="4"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -300 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+root_node = NodePath("../AudioStreamPlayer")
+anims/explode = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
