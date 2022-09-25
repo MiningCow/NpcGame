@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/text_window_square.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Pangolin-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/DialogueUI.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/DialogueFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/name_tab.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=4]
 size = 26
@@ -27,6 +28,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 150 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("NamePlate:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "down"
@@ -44,6 +57,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, -64 ), Vector2( 0, 150 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("NamePlate:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 34, 345 ), Vector2( 34, 559 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "up"
@@ -60,6 +85,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 150 ), Vector2( 0, -64 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("NamePlate:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 34, 131 ), Vector2( 34, 345 ) ]
+}
 
 [node name="DialogueUI" type="Control"]
 margin_right = 40.0
@@ -67,11 +104,34 @@ margin_bottom = 40.0
 script = ExtResource( 3 )
 text_speed = 0.03
 
+[node name="NamePlate" type="TextureRect" parent="."]
+visible = false
+margin_left = 34.0
+margin_top = 559.0
+margin_right = 201.0
+margin_bottom = 618.0
+texture = ExtResource( 5 )
+
+[node name="NameLabel" type="RichTextLabel" parent="NamePlate"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = 15.0
+margin_right = -14.0
+margin_bottom = -6.0
+custom_colors/default_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_top = 150.0
 margin_right = 1024.0
 margin_bottom = 1174.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 margin_left = 20.0

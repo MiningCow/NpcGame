@@ -8,6 +8,7 @@ func _ready():
 	dialogue_ui.connect("dialogue_ended", self, "_on_Dialogue_ended")
 
 func begin_dialogue(dialogue, npc) -> void:
+	if talking: return
 	dialogue_ui.begin_dialogue(dialogue, npc)
 	talking = true
 	npc = npc

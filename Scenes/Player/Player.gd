@@ -22,10 +22,12 @@ func move():
 	motion = move_and_slide(motion)
 
 func _input(event):
+	if event.is_action_pressed("open_inventory"):
+		print("inventory opened")
 	if event.is_action_pressed("interact"):
-		if npcs_in_range.size() && !DialogueManager.talking:
+		if npcs_in_range.size():
 			get_closest_node(npcs_in_range).talk()
-		elif items_in_range.size():
+		elif items_in_range.size() && !DialogueManager.talking:
 			get_closest_node(items_in_range).pickup(self)
 
 func get_input_direction() -> Vector2:

@@ -10,12 +10,12 @@ func _ready():
 	if not item:
 		item = ItemDatabase.get_item("undefined")
 	$Sprite.texture = item.texture
-	label.bbcode_text = "[center]%s[/center]" % item.display_name
+	interaction_indicator.set_text(item.display_name)
 
 func set_item(new_item: ItemResource) -> void :
 	item = new_item
 	$Sprite.texture = item.texture
-	label.bbcode_text = "[center]%s[/center]" % item.display_name
+	interaction_indicator.set_text(item.display_name)
 
 func pickup(entity) -> void:
 	entity.inventory.add_item(item.id, 1)

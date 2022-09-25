@@ -9,6 +9,7 @@ var dialogue
 
 func _ready():
 	dialogue = get_dialogue()
+	interaction_indicator.set_text(name)
 
 func get_dialogue():
 	var f = File.new()

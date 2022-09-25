@@ -9,6 +9,7 @@ export(float) var punctuation_speed = 0.2
 onready var animation_player = $AnimationPlayer
 onready var label = $TextureRect/MarginContainer/VBoxContainer/RichTextLabel
 onready var button_container = $TextureRect/MarginContainer/VBoxContainer/HBoxContainer
+onready var name_label = $"%NameLabel"
 onready var timer = $Timer
 var npc
 var dialogue
@@ -20,6 +21,7 @@ func _ready():
 	pass
 
 func begin_dialogue(dialogue, npc):
+	name_label.bbcode_text = "[center]%s[/center]" % dialogue["name"]
 	self.npc = npc
 	self.dialogue = dialogue
 	label.text = ""

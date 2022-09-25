@@ -59,6 +59,9 @@ dialogue_path = "res://Narrative/Dialogue/John.json"
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 
+[node name="InteractionIndicator" parent="." index="1"]
+position = Vector2( 0, -151 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 1 )
 

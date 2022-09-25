@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/weird_mushroom.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "weird_mushroom"
+display_name = "Suspicious Mushroom"
+description = "An exotic looking mushroom with a pungent smell that arouses suspicion"
+texture = ExtResource( 2 )

@@ -35,5 +35,8 @@ func add_item(new_item_id: String, quantity: int):
 	for i in quantity:
 		_items.append(new_item)
 
-func remove_item(index: int) -> void :
+	emit_signal("inventory_updated")
+
+func remove_item(index: int) -> void:
 	_items.erase(_items[index])
+	emit_signal("inventory_updated")

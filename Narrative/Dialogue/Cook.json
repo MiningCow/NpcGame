@@ -1,0 +1,72 @@
+{
+    "name": "Cook",
+	"start": {
+        "start": "00"
+    },
+	"passages": {
+		"00": {
+			"text": "Hey! Can you please help me? I'm cooking a stew for everybody tonight and I forgot the most important ingredient!",
+            "links": [
+                {
+                    "text": "Sure",
+                    "link": "01"
+                },
+                {
+                    "text": "No",
+                    "link": "bye"
+                }
+            ]
+		},
+        "01": {
+            "text": "I forgot to bring a mushroom. The soup just wont be the same without it. Can you please bring me one?"
+        },
+        "20": {
+			"text": "If you find any other ingredients bring them to me.",
+            "links": [
+                {
+                    "text": "Sure", 
+                    "link": "thank"
+                },
+                {
+                    "text": "",
+                    "link": ""
+                }
+            ]
+		},
+        "21": {
+			"text": "Did you bring something for the soup?",
+            "links": [
+                {
+                    "text": "",
+                    "link": ""
+                },
+                {
+                    "text": "",
+                    "link": ""
+                }
+            ]
+		},
+        "bye": {
+            "text": "Goodbye"
+        },
+        "thank": {
+            "text": "Thank you! Bye"
+        }
+    },
+    "conditions": {
+        "talked": [
+            {
+                "type": "var",
+                "id": "talked_john",
+                "value": "true"
+            }
+        ],
+        "hasFootball": [
+            {
+                "type": "item",
+                "id": "football",
+                "count": 1
+            }
+        ]
+    }
+}

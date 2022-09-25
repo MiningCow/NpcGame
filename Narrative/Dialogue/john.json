@@ -153,7 +153,7 @@
             "execute": "explode"
         },
         "bye": {
-            "text": "See ya!"
+            "text": "{suspicious:Bye|See ya!}"
         }
     },
     "conditions": {

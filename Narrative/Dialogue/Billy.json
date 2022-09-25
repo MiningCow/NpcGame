@@ -12,20 +12,20 @@
             },
             "links": [
                 {
-                    "text": "Poop filled toilet brain",
+                    "text": "stupid pea brain",
                     "link": "01"
                 },
                 {
-                    "text": "Yeah sure",
-                    "link": "01"
+                    "text": "That's not a very nice thing to say, Billy.",
+                    "link": "11"
                 }
             ]
 		},
         "01": {
-			"text": "Oh yeah well you're a stupid pea brain",
+			"text": "Oh yeah well you're a poop filled toilet brain",
             "links": [
                 {
-                    "text": "",
+                    "text": "Diarrhea breath",
                     "link": "01"
                 },
                 {

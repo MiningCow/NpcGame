@@ -1,15 +1,19 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/paper_background.png" type="Texture" id=2]
 [ext_resource path="res://World/World.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/NPCs/John.tscn" type="PackedScene" id=4]
-[ext_resource path="res://World/Bush.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Decorations/Bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/DialogueUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Items/object.tres" type="Resource" id=7]
 [ext_resource path="res://World/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/football.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Items/football.tres" type="Resource" id=9]
+[ext_resource path="res://Scenes/Decorations/Cauldron.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/Items/lighter.tres" type="Resource" id=11]
+[ext_resource path="res://Resources/Items/weird_mushroom.tres" type="Resource" id=12]
+[ext_resource path="res://Scenes/NPCs/Cook.tscn" type="PackedScene" id=13]
+[ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -24,6 +28,14 @@ script = ExtResource( 3 )
 position = Vector2( 512, 300 )
 current = true
 process_mode = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( 822, 403 )
@@ -35,12 +47,23 @@ position = Vector2( -310, -53 )
 position = Vector2( 0, -50 )
 remote_path = NodePath("../../../Camera2D")
 
+[node name="Cook" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( -56, -164 )
+
 [node name="John" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -672, 143 )
 
 [node name="Lighter" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -949, 1 )
 item = ExtResource( 11 )
+
+[node name="Mushroom" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -336, -372 )
+item = ExtResource( 12 )
+
+[node name="Item" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -645, -275 )
+item = ExtResource( 9 )
 
 [node name="Object" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 319, -94 )
@@ -54,11 +77,8 @@ self_modulate = Color( 3, 1, 1, 1 )
 position = Vector2( 0, 0 )
 offset = Vector2( 0, -15 )
 
-[node name="Football" type="Sprite" parent="YSort"]
-position = Vector2( -674, -261 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-offset = Vector2( 0, -115 )
+[node name="Cauldron" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -144, -165 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -487, -233 )
@@ -105,6 +125,8 @@ margin_bottom = 41.0
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Inventory" parent="UI" instance=ExtResource( 14 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
