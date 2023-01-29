@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/stickfigures.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Characters/stickfigures.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Npc.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/NPCs/Cook.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Items/weird_mushroom.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Items/mushroom.tres" type="Resource" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0998
 
 [node name="Cook" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 dialogue_path = "res://Narrative/Dialogue/Cook.json"
+good_mushroom = ExtResource( 5 )
+poison_mushroom = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )

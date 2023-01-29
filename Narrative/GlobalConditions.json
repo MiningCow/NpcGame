@@ -1,0 +1,16 @@
+{
+    "poisoned_soup": [
+        {
+            "type": "var",
+            "id": "poisoned_soup",
+            "value": "true"
+        }
+    ],
+    "finished_soup": [
+        {
+            "type": "var",
+            "id": "completed_Cook",
+            "value": "true"
+        }
+    ]
+}

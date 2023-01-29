@@ -7,6 +7,10 @@ onready var interaction_indicator = $InteractionIndicator
 #var effect: PackedScene
 
 func _ready():
+	if item == null:
+		printerr("Ground item '%s' is missing item resource" % name)
+		return
+
 	if not item:
 		item = ItemDatabase.get_item("undefined")
 	$Sprite.texture = item.texture

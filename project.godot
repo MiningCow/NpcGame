@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 DialogueManager="*res://Autoloads/DialogueManager.gd"
 Globals="*res://Autoloads/Globals.gd"
 ItemDatabase="*res://Autoloads/ItemDatabase.gd"
+ConditionManager="*res://Autoloads/ConditionManager.gd"
 
 [display]
 

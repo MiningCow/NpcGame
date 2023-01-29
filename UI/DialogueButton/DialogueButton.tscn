@@ -7,8 +7,7 @@
 [ext_resource path="res://UI/DialogueButton/DialogueButton.gd" type="Script" id=5]
 
 [node name="DialogueButton" type="TextureButton"]
-margin_left = 61.0
-margin_right = 267.0
+margin_right = 206.0
 margin_bottom = 48.0
 size_flags_horizontal = 6
 texture_normal = ExtResource( 1 )
@@ -17,11 +16,17 @@ texture_hover = ExtResource( 3 )
 stretch_mode = 4
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.235294, 0.235294, 0.235294, 1 )
-custom_fonts/font = ExtResource( 2 )
-text = "test"
-align = 1
-valign = 1
+[node name="Label" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -15.0
+margin_right = 150.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_colors/default_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+fit_content_height = true

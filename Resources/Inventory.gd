@@ -37,6 +37,10 @@ func add_item(new_item_id: String, quantity: int):
 
 	emit_signal("inventory_updated")
 
-func remove_item(index: int) -> void:
+func remove_item(item: ItemResource) -> void:
+	_items.erase(item)
+	emit_signal("inventory_updated")
+
+func remove_item_with_index(index: int) -> void:
 	_items.erase(_items[index])
 	emit_signal("inventory_updated")

@@ -26,19 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 150 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("NamePlate:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
+"values": [ Vector2( 0, 200 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -55,19 +43,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -64 ), Vector2( 0, 150 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("NamePlate:rect_position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 34, 345 ), Vector2( 34, 559 ) ]
+"values": [ Vector2( 0, -64 ), Vector2( 0, 200 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -83,19 +59,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 150 ), Vector2( 0, -64 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("NamePlate:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 34, 131 ), Vector2( 34, 345 ) ]
+"values": [ Vector2( 0, 200 ), Vector2( 0, -64 ) ]
 }
 
 [node name="DialogueUI" type="Control"]
@@ -103,16 +67,26 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 3 )
 text_speed = 0.03
+punctuation_speed = 0.25
 
-[node name="NamePlate" type="TextureRect" parent="."]
-visible = false
-margin_left = 34.0
-margin_top = 559.0
-margin_right = 201.0
-margin_bottom = 618.0
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 200.0
+margin_right = 1024.0
+margin_bottom = 1224.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NamePlate" type="TextureRect" parent="TextureRect"]
+show_behind_parent = true
+margin_left = 37.0
+margin_top = 410.0
+margin_right = 204.0
+margin_bottom = 469.0
 texture = ExtResource( 5 )
 
-[node name="NameLabel" type="RichTextLabel" parent="NamePlate"]
+[node name="NameLabel" type="RichTextLabel" parent="TextureRect/NamePlate"]
 unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -123,15 +97,6 @@ margin_bottom = -6.0
 custom_colors/default_color = Color( 0.235294, 0.235294, 0.235294, 1 )
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_top = 150.0
-margin_right = 1024.0
-margin_bottom = 1174.0
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 margin_left = 20.0

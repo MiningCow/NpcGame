@@ -1,11 +1,13 @@
 {
     "name": "Cook",
 	"start": {
-        "start": "00"
+        "start": "00",
+        "completed": "50",
+        "agreed": "20"
     },
 	"passages": {
-		"00": {
-			"text": "Hey! Can you please help me? I'm cooking a stew for everybody tonight and I forgot the most important ingredient!",
+        "00": {
+			"text": "{denied:Change your mind? I really need help finding this special ingredient...|Hey! Can you please help me? I'm cooking a stew for everybody tonight and I forgot the most important ingredient!}",
             "links": [
                 {
                     "text": "Sure",
@@ -13,58 +15,208 @@
                 },
                 {
                     "text": "No",
-                    "link": "bye"
+                    "link": "ugh"
                 }
             ]
 		},
         "01": {
-            "text": "I forgot to bring a mushroom. The soup just wont be the same without it. Can you please bring me one?"
+            "text": "{denied:I'm cooking a stew for everybody tonight, but |}I forgot to bring a mushroom. The soup just wont be the same without it! {hasPoison:Is that a mushroom I smell?|}{hasMushroom:*Sniff* wait what's what? Please tell me that's a mushroom I smell!|}{hasBoth:Do you happen to have any mushrooms on you?|}",
+            "set": {
+                "id": "agreed_Cook",
+                "value": "true"
+            },
+            "links": [
+                {
+                    "text": "Bye",
+                    "link": "thank"
+                },
+                {
+                    "text": "Mhm",
+                    "condition": "hasPoison",
+                    "link": "22"
+                },
+                {
+                    "text": "That's right",
+                    "condition": "hasMushroom",
+                    "link": "23"
+                },
+                {
+                    "text": "Yup",
+                    "condition": "hasBoth",
+                    "link": "40"
+                }
+            ]
         },
         "20": {
-			"text": "If you find any other ingredients bring them to me.",
+            "text": "Did you bring me the mushroom?",
+            "links": [
+                {
+                    "text": "No",
+                    "link": "21"
+                },
+                {
+                    "text": "Mhm",
+                    "condition": "hasPoison",
+                    "link": "22"
+                },
+                {
+                    "text": "Yes",
+                    "condition": "hasMushroom",
+                    "link": "23"
+                },
+                {
+                    "text": "Yup",
+                    "condition": "hasBoth",
+                    "link": "40"
+                }
+            ]
+        },
+        "21": {
+            "text": "Please bring me a mushroom. The soup won't be the same without it"
+        },
+        "22": {
+            "text": "Oh that's an interesting looking mushroom. I don't think I've ever seen one like that before. Oh well it's the best I have. In it goes!",
+            "execute": "poison",
+            "set": {
+                "id": "completed_Cook",
+                "value": "true"
+            },
+            "next": "30"
+        },
+        "23": {
+            "text": "Awesome this is exactly what I was looking for!",
+            "execute": "good_mushroom",
+            "set": {
+                "id": "completed_Cook",
+                "value": "true"
+            },
+            "next": "30"
+        },
+        "30": {
+			"text": "If you find any other ingredients, bring them to me.",
             "links": [
                 {
                     "text": "Sure", 
                     "link": "thank"
                 },
                 {
-                    "text": "",
-                    "link": ""
+                    "text": "Nah",
+                    "link": "uhm"
                 }
             ]
 		},
-        "21": {
-			"text": "Did you bring something for the soup?",
+        "40": {
+			"text": "Oh I see you have 2 mushrooms. Just toss me whichever you think would taste better.",
             "links": [
                 {
-                    "text": "",
-                    "link": ""
+                    "text": "[img=32]res://Assets/Items/weird_mushroom.png[/img]",
+                    "link": "22"
                 },
                 {
-                    "text": "",
-                    "link": ""
+                    "text": "[img=32]res://Assets/Items/mushroom.png[/img]",
+                    "link": "23"
                 }
             ]
 		},
+        "50": {
+			"text": "{weird:Hey there.|Hey! Got anything for me?}",
+            "links": [
+                {
+                    "text": "I have something for you",
+                    "link": "51"
+                },
+                {
+                    "text": "Bye",
+                    "link": "bye"
+                }
+            ]
+		},
+        "51": {
+			"text": "UNFINISHED"
+		},
         "bye": {
-            "text": "Goodbye"
+            "text": "Goodbye."
+        },
+        "ugh": {
+            "text": "{denied:Jerk.|Ugh the soup just wont be the same.}",
+            "set": {
+                "id": "denied_Cook",
+                "value": "true"
+            }
+        },
+        "uhm": {
+            "text": "Uhm.. alright then. Later.",
+            "set": {
+                "id": "weird_Cook",
+                "value": "true"
+            }
         },
         "thank": {
-            "text": "Thank you! Bye"
+            "text": "Thank you so much! Bye."
         }
     },
     "conditions": {
-        "talked": [
+        "agreed": [
             {
                 "type": "var",
-                "id": "talked_john",
+                "id": "agreed_Cook",
                 "value": "true"
             }
         ],
-        "hasFootball": [
+        "weird": [
+            {
+                "type": "var",
+                "id": "weird_Cook",
+                "value": "true"
+            }
+        ],
+        "denied": [
+            {
+                "type": "var",
+                "id": "denied_Cook",
+                "value": "true"
+            }
+        ],
+        "completed": [
+            {
+                "type": "var",
+                "id": "completed_Cook",
+                "value": "true"
+            }
+        ],
+        "hasPoison": [
             {
                 "type": "item",
-                "id": "football",
+                "id": "weird_mushroom",
+                "count": 1
+            },
+            {
+                "type": "item",
+                "id": "mushroom",
+                "count": 0
+            }
+        ],
+        "hasMushroom": [
+            {
+                "type": "item",
+                "id": "mushroom",
+                "count": 1
+            },
+            {
+                "type": "item",
+                "id": "weird_mushroom",
+                "count": 0
+            }
+        ],
+        "hasBoth": [
+            {
+                "type": "item",
+                "id": "mushroom",
+                "count": 1
+            },
+            {
+                "type": "item",
+                "id": "weird_mushroom",
                 "count": 1
             }
         ]

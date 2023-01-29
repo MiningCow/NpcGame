@@ -21,7 +21,7 @@ func get_dialogue():
 
 	f.close()
 
-	assert(typeof(json) == TYPE_DICTIONARY)
+#	assert(typeof(json) == TYPE_DICTIONARY)
 
 	return json
 

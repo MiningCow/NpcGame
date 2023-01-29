@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/mushroom.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "mushroom"
+display_name = "Mushroom"
+description = "This mushroom {poisoned_soup:would've tasted great|would taste great} in a soup"
+texture = ExtResource( 2 )
