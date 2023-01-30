@@ -1,5 +1,6 @@
 extends Node
 
+var Util = preload("res://Scenes/Util.gd").new()
 var global_conditions_path = "res://Narrative/GlobalConditions.json"
 
 var _conditions = {
@@ -9,14 +10,8 @@ var _global_conditions = {
 }
 
 func _ready():
-	var f = File.new()
-	assert(f.file_exists(global_conditions_path), "Dialogue file does not exist")
 
-	f.open(global_conditions_path, File.READ)
-
-	_global_conditions = parse_json(f.get_as_text())
-
-	f.close()
+	_global_conditions = Util.get_json(global_conditions_path)
 
 func set_condition(id, value):
 	_conditions[id] = value

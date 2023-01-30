@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 export(Resource) var item setget setItem
 

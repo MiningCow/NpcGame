@@ -1,0 +1,55 @@
+{
+    "name": "Liam",
+    "start": {
+        "start": "00"
+    },
+    "passages": {
+        "00": {
+            "text": "I like watching the hole.____ I like the hole._____ Do you like the hole?____ I like the hole.",
+            "links": [
+                {
+                    "text": "It's nice",
+                    "link": "01"
+                },
+                {
+                    "text": "Not particularily",
+                    "link": "10"
+                }
+            ]
+        },
+        "01": {
+            "text": "I love the hole.____ S__o__m__e__t__i__m__e__s____________ I _j_u_s_t__________________ w_a_n_n_a _j_u_m_p i_n_.",
+            "links": [
+                {
+                    "text": "Okay.",
+                    "link": "01"
+                },
+                {
+                    "text": "That's weird, man",
+                    "link": "ignore"
+                }
+            ]
+        },
+        "ignore": {
+            "text": "_.__.__.",
+            "links": [
+                {
+                    "text": "Bye",
+                    "link": "bye"
+                }
+            ]
+        },
+        "bye": {
+            "text": "Farewell."
+        }
+    },
+    "conditions": {
+        "talked": [
+            {
+                "type": "var",
+                "id": "talked_Liam",
+                "value": "true"
+            }
+        ]
+    }
+}

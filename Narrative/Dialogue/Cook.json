@@ -85,7 +85,6 @@
         },
         "23": {
             "text": "Awesome this is exactly what I was looking for!",
-            "execute": "good_mushroom",
             "set": {
                 "id": "completed_Cook",
                 "value": "true"
@@ -132,7 +131,7 @@
             ]
 		},
         "51": {
-			"text": "UNFINISHED"
+			"text": "No you don't."
 		},
         "bye": {
             "text": "Goodbye."
