@@ -92,7 +92,7 @@
             "text": "{suspicious:What do you want with my fuse??|uhh sure I guess. Just don't touch it though}",
             "links": [
                 {
-                    "text": "LIGHT FUSE",
+                    "text": "LIGHT FUSE [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/lighter.png[/img][/font]",
                     "condition": "hasLighter",
                     "link": "14"
                 },
@@ -115,7 +115,7 @@
                     "link": "bye"
                 },
                 {
-                    "text": "LIGHT FUSE",
+                    "text": "LIGHT FUSE [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/lighter.png[/img][/font]",
                     "condition": "hasLighter",
                     "link": "14"
                 }
@@ -129,7 +129,7 @@
                     "link": "bye"
                 },
                 {
-                    "text": "LIGHT FUSE",
+                    "text": "LIGHT FUSE [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/lighter.png[/img][/font]",
                     "condition": "hasLighter",
                     "link": "14"
                 }

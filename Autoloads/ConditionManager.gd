@@ -1,5 +1,7 @@
 extends Node
 
+signal condition_changed(condition)
+
 var Util = preload("res://Scenes/Util.gd").new()
 var global_conditions_path = "res://Narrative/GlobalConditions.json"
 
@@ -10,11 +12,11 @@ var _global_conditions = {
 }
 
 func _ready():
-
 	_global_conditions = Util.get_json(global_conditions_path)
 
 func set_condition(id, value):
 	_conditions[id] = value
+	emit_signal("condition_changed", id)
 
 func check_condition(id, conditions = _global_conditions):
 	var not_condition = id.begins_with("!")
@@ -24,7 +26,11 @@ func check_condition(id, conditions = _global_conditions):
 	for check in condition:
 		match check["type"]:
 			"var":
-				if _conditions.get(check["id"]) == check["value"]:
+				var value = check["value"]
+				if value == "false" && (!_conditions.get(check["id"]) || _conditions.get(check["id"]) == value):
+					if not_condition:
+						return false
+				elif _conditions.get(check["id"]) == value:
 					if not_condition:
 						return false
 				elif !not_condition:

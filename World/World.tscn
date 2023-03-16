@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/paper_background.png" type="Texture" id=2]
@@ -20,10 +20,11 @@
 [ext_resource path="res://Assets/Decorations/mushroom_hole.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Decorations/hole.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/Liam.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Resources/Items/murder_weapon.tres" type="Resource" id=21]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 25.0
-height = 30.0
+radius = 22.9999
+height = 34.0001
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -68,11 +69,15 @@ position = Vector2( -672, 143 )
 position = Vector2( -949, 1 )
 item = ExtResource( 11 )
 
+[node name="Lighter2" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 475, -530 )
+item = ExtResource( 21 )
+
 [node name="PoisonMushroom" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -336, -372 )
 item = ExtResource( 12 )
 
-[node name="Item" parent="YSort" instance=ExtResource( 8 )]
+[node name="Football" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -645, -275 )
 item = ExtResource( 9 )
 

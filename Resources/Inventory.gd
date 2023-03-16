@@ -5,6 +5,10 @@ signal inventory_updated
 
 export(Array, Resource) var _items = [] setget set_items, get_items
 
+func print_items():
+	for item in _items:
+		print(item.display_name)
+
 func set_items(items: Array):
 	_items = items
 	emit_signal("inventory_updated", self)
@@ -38,6 +42,7 @@ func add_item(new_item_id: String, quantity: int):
 	emit_signal("inventory_updated")
 
 func remove_item(item: ItemResource) -> void:
+	print("removing item %s" % item.id)
 	_items.erase(item)
 	emit_signal("inventory_updated")
 

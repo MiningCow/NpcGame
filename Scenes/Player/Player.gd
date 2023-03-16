@@ -19,6 +19,12 @@ func _physics_process(delta):
 	if !DialogueManager.talking: move()
 
 func move():
+	#TEMP TEMP TEMP
+	if motion == Vector2.ZERO:
+		$AnimatedSprite.playing = false
+	else:
+		$AnimatedSprite.playing = true
+
 	motion = move_and_slide(motion)
 
 func _input(event):

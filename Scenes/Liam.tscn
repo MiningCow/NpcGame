@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Npc.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Characters/liam.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/NPCs/Liam.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0
 height = 50.0
 
 [node name="Liam" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 dialogue_path = "res://Narrative/Dialogue/Liam.json"
 
 [node name="Sprite" parent="." index="0"]
@@ -21,3 +23,7 @@ position = Vector2( -12, -44 )
 position = Vector2( -13, -1 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
+position = Vector2( -5.72205e-06, -48 )
+scale = Vector2( 9, 8.7 )

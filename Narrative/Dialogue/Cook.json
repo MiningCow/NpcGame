@@ -20,7 +20,7 @@
             ]
 		},
         "01": {
-            "text": "{denied:I'm cooking a stew for everybody tonight, but |}I forgot to bring a mushroom. The soup just wont be the same without it! {hasPoison:Is that a mushroom I smell?|}{hasMushroom:*Sniff* wait what's what? Please tell me that's a mushroom I smell!|}{hasBoth:Do you happen to have any mushrooms on you?|}",
+            "text": "{denied:I'm cooking a stew for everybody tonight, but |}I forgot to bring a mushroom. The soup just wont be the same without it! {hasPoison:*Sniff* is that a mushroom I smell?|}{hasMushroom:*Sniff* wait what's what? Please tell me that's a mushroom I smell!|}{hasBoth:Do you happen to have any mushrooms on you?|}",
             "set": {
                 "id": "agreed_Cook",
                 "value": "true"
@@ -55,12 +55,12 @@
                     "link": "21"
                 },
                 {
-                    "text": "Mhm",
+                    "text": "Mhm [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/weird_mushroom.png[/img][/font]",
                     "condition": "hasPoison",
                     "link": "22"
                 },
                 {
-                    "text": "Yes",
+                    "text": "Yes [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/mushroom.png[/img][/font]",
                     "condition": "hasMushroom",
                     "link": "23"
                 },
@@ -85,6 +85,7 @@
         },
         "23": {
             "text": "Awesome this is exactly what I was looking for!",
+            "execute": "mushroom",
             "set": {
                 "id": "completed_Cook",
                 "value": "true"
@@ -108,11 +109,11 @@
 			"text": "Oh I see you have 2 mushrooms. Just toss me whichever you think would taste better.",
             "links": [
                 {
-                    "text": "[img=32]res://Assets/Items/weird_mushroom.png[/img]",
+                    "text": "TOSS [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/weird_mushroom.png[/img][/font]",
                     "link": "22"
                 },
                 {
-                    "text": "[img=32]res://Assets/Items/mushroom.png[/img]",
+                    "text": "TOSS [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/mushroom.png[/img][/font]",
                     "link": "23"
                 }
             ]
@@ -121,17 +122,28 @@
 			"text": "{weird:Hey there.|Hey! Got anything for me?}",
             "links": [
                 {
-                    "text": "I have something for you",
+                    "text": "GIVE [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/mushroom.png[/img][/font]",
+                    "condition": "!denied_mushroom",
                     "link": "51"
                 },
                 {
-                    "text": "Bye",
+                    "text": "No",
                     "link": "bye"
                 }
             ]
 		},
         "51": {
-			"text": "No you don't."
+			"text": "Sorry, the recipe calls for exactly one mushroom and I already put it in.",
+            "set": {
+                "id": "denied_mushroom_Cook",
+                "value": "true"
+            },
+            "links": [
+                {
+                    "text": "Bye",
+                    "link": "bye"
+                }
+            ]
 		},
         "bye": {
             "text": "Goodbye."
@@ -174,6 +186,13 @@
                 "type": "var",
                 "id": "denied_Cook",
                 "value": "true"
+            }
+        ],
+        "denied_mushroom": [
+            {
+               "type": "var",
+               "id": "denied_mushroom_Cook",
+               "value": "true"
             }
         ],
         "completed": [

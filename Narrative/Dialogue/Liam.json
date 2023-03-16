@@ -1,11 +1,16 @@
 {
     "name": "Liam",
     "start": {
-        "start": "00"
+        "start": "00",
+        "talked": "10"
     },
     "passages": {
         "00": {
-            "text": "I like watching the hole.____ I like the hole._____ Do you like the hole?____ I like the hole.",
+            "text": "I like watching the hole.~~~ I like the hole.~~~ D_o~ you like the hole?~~~~ I like the hole.",
+            "set": {
+                "id": "talked_Liam",
+                "value": "true"
+            },
             "links": [
                 {
                     "text": "It's nice",
@@ -18,17 +23,48 @@
             ]
         },
         "01": {
-            "text": "I love the hole.____ S__o__m__e__t__i__m__e__s____________ I _j_u_s_t__________________ w_a_n_n_a _j_u_m_p i_n_.",
+            "text": "I love the hole.~~ S_o_m_e_t_i_m_e_s~~~ I _j_u_s_t~~~~ w_a_n_n_a_ j_u_m_p i_n_.",
+            "set": {
+                "id": "admitted_Liam",
+                "value": "true"
+            },
             "links": [
                 {
                     "text": "Okay.",
-                    "link": "01"
+                    "link": "ignore"
                 },
                 {
                     "text": "That's weird, man",
-                    "link": "ignore"
+                    "link": "sigh"
                 }
             ]
+        },
+        
+        "10": {
+            "text": "It's~~ beautiful.",
+            "links": [
+                {
+                    "text": "I see that now.",
+                    "condition": "!admitted",
+                    "link": "01"
+                },
+                {
+                    "text": "Wanna play [font=res://Fonts/vertical_offset.tres][img=32]res://Assets/Items/football.png[/img][/font]?",
+                    "condition": "can_offer_football",
+                    "link": "football"
+                },
+                {
+                    "text": "Uhh bye",
+                    "link": "bye"
+                }
+            ]
+        },
+        "football": {
+            "text": "No.",
+            "set": {
+                "id": "denied_football_Liam",
+                "value": "true"
+            }
         },
         "ignore": {
             "text": "_.__.__.",
@@ -38,6 +74,9 @@
                     "link": "bye"
                 }
             ]
+        },
+        "sigh": {
+            "text": "S_i_g_h_..."
         },
         "bye": {
             "text": "Farewell."
@@ -49,6 +88,25 @@
                 "type": "var",
                 "id": "talked_Liam",
                 "value": "true"
+            }
+        ],
+        "admitted": [
+            {
+                "type": "var",
+                "id": "admitted_Liam",
+                "value": "true"
+            }
+        ],
+        "can_offer_football": [
+            {
+                "type": "var",
+                "id": "denied_football_Liam",
+                "value": "false"
+            },
+            {
+                "type": "item",
+                "id": "football",
+                "count": 1
             }
         ]
     }

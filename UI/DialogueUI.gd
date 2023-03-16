@@ -6,7 +6,8 @@ var button_scene = preload("res://UI/DialogueButton/DialogueButton.tscn")
 var continue_button_scene = preload("res://UI/DialogueButton/ContinueButton.tscn")
 export(float) var text_speed = 0.1
 export(float) var punctuation_speed = 0.2
-export(float) var pause_speed = 0.25
+export(float) var pause_speed = 0.06
+export(float) var long_pause_speed = 0.25
 onready var animation_player = $AnimationPlayer
 onready var label = $TextureRect/MarginContainer/VBoxContainer/RichTextLabel
 onready var button_container = $TextureRect/MarginContainer/VBoxContainer/HBoxContainer
@@ -59,7 +60,18 @@ func next_passage(id):
 	label.visible_characters = 0
 
 	while label.visible_characters < len(label.text):
-		if label.text[label.visible_characters] == "_":
+		var character = label.text[label.visible_characters]
+		var wait_time = text_speed
+
+		match character:
+			".",",","!","?":
+				wait_time = punctuation_speed
+			"_":
+				wait_time = pause_speed
+			"~":
+				wait_time = long_pause_speed
+
+		if character == "_" || character == "~":
 			var new_string = label.bbcode_text
 			new_string.erase(label.visible_characters, 1)
 			label.bbcode_text = new_string
@@ -68,18 +80,11 @@ func next_passage(id):
 
 		if Input.is_action_pressed("interact"):
 			label.bbcode_text = label.bbcode_text.replace("_", "")
+			label.bbcode_text = label.bbcode_text.replace("~", "")
 			label.visible_characters = len(label.text)
 
-		var character = label.text[label.visible_characters-1]
-		var punctuation = character == "." || character == "," || character == "!" || character == "?"
-		var wait_time = text_speed
-
-		if punctuation:
-			wait_time = punctuation_speed
-		elif character == '_':
-			wait_time = pause_speed
-
 		timer.start(wait_time)
+#		print("Character is '%s', starting timer for %f" % [character, wait_time])
 		yield(timer, "timeout")
 
 	show_buttons()
